@@ -11,7 +11,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      log_in @post
       flash[:success] = "Welcome to the post!"
       redirect_to @post
     else

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'post/new', to: 'posts#new'
+  get '/newpost', to: 'posts#new'
 
   root   'static_pages#home'
   get    '/help',    to: 'static_pages#help'
