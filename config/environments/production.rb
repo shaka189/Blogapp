@@ -80,12 +80,24 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+ config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
-
+config.action_mailer.smtp_settings = {
+    :address          => 'smtp.gmail.com',
+    :port                 => '587',
+    :authentication => :plain,
+    :user_name      => 'viettienn97@gmail.com',
+    :password        => '1891997azzz',
+    :domain            => 'gmail.com',
+    :enable_starttls_auto => true
+  }
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
